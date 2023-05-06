@@ -3,7 +3,7 @@
 from socket import *
 import sys
 
-# Preparing the socket
+# Preparing the socket, tubes nomor 1
 serverSocket = socket(AF_INET, SOCK_STREAM)
 serverPort = 12345 # Arbitrary port number
 serverSocket.bind(('',serverPort)) # Binding the port to the socket
@@ -15,19 +15,19 @@ while True:
     print("Request accepted from (address, port) tuple: %s" % (addr,))
 
     try:
-        # Recieve message and check file name
+        # Recieve message and check file name, tubes nomor 3
         message = connectionSocket.recv(2048).decode()
         filename = message.split()[1]
         f = open(filename[1:], 'r')
         outputdata = f.read()
 
         print("File found.")
-        # Returns header line informing that the file was found
+        # Returns header line informing that the file was found, tubes nomor 4
         headerLine = "HTTP/1.1 200 OK\r\n"
         connectionSocket.send(headerLine.encode())
         connectionSocket.send("\r\n".encode())
 
-        # Sends the file
+        # Sends the file, tubes nomor 5
         for i in range(0, len(outputdata)):
             connectionSocket.send(outputdata[i].encode())
         connectionSocket.send("\r\n".encode())
