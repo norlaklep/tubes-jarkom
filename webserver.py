@@ -16,9 +16,9 @@ while True:
 
     try:
         # Recieve message and check file name, tubes nomor 3
-        message = connectionSocket.recv(2048).decode()
+        message = connectionSocket.recv(1024).decode()
         filename = message.split()[1]
-        f = open(filename[1:], 'r')
+        f = open(filename[1:])
         outputdata = f.read()
 
         print("File found.")
