@@ -1,5 +1,3 @@
-# Import socket module
-# Import sys to terminate the program
 from socket import *
 import sys
 
