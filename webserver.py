@@ -5,14 +5,13 @@ import sys
 
 # Preparing the socket, tubes nomor 1
 serverSocket = socket(AF_INET, SOCK_STREAM)
-serverPort = 12345 # Arbitrary port number
+serverPort = 8080 # Arbitrary port number
 serverSocket.bind(('',serverPort)) # Binding the port to the socket
 serverSocket.listen(1) # Waiting for a request
 print("Ready to serve . . .")
 
 while True:
     connectionSocket, addr = serverSocket.accept() # Accepting request
-    print("Request accepted from (address, port) tuple: %s" % (addr,))
 
     try:
         # Recieve message and check file name, tubes nomor 3
