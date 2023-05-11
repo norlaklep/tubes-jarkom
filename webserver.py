@@ -41,7 +41,7 @@ while True:
         connectionSocket.send("\r\n".encode())
 
         # mencari file error dan mengirim file error 
-        ferr = open("notfound.html", 'r')
+        ferr = open("error404.html", 'r')
         outputerr = ferr.read()
 
         for i in range(0, len(outputerr)):
